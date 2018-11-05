@@ -1,5 +1,7 @@
 package com.github.barthik.controller;
 
+import com.github.barthik.model.Customer;
+import com.github.barthik.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +15,12 @@ import java.time.LocalDateTime;
 public class TestController {
 
     private final Environment environment;
+    private final CustomerRepository customerRepository;
 
     @Autowired
-    public TestController(Environment environment) {
+    public TestController(Environment environment, CustomerRepository customerRepository) {
         this.environment = environment;
+        this.customerRepository = customerRepository;
     }
 
     @GetMapping(value = "/")
@@ -31,5 +35,10 @@ public class TestController {
                 .append(" : ")
                 .append(port != null ? port : "[unknown]")
                 .toString();
+    }
+
+    @GetMapping(value = "/customers")
+    public Iterable<Customer> findAllCustomers() {
+        return customerRepository.findAll();
     }
 }

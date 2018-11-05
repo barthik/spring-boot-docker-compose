@@ -10,9 +10,11 @@ Test controller available at `http://localhost:9090/` with basic info:
 Docker commands:
 ```cmd
 docker-compose up
-docker-compose shutdown
+docker-compose down
 ```
 
+- Error starting userland proxy?
+  - Restart docker
 - Shared drive error?
   - Allow to share your drive in `Docker/Settings/Shared Drives`
 - MariaDB failed to start?
