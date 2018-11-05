@@ -7,6 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 @SpringBootApplication
 public class Application {
@@ -23,5 +27,12 @@ public class Application {
         customerRepository.save(new Customer(null, "Company 1"));
         customerRepository.save(new Customer(null, "Company 2"));
         customerRepository.save(new Customer(null, "Company 3"));
+
+        try (FileOutputStream fos = new FileOutputStream("test-file.txt")) {
+            fos.write("Hello, it's me...".getBytes());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

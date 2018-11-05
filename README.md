@@ -1,4 +1,4 @@
-# Spring Boot 2 + Docker Compose
+# Spring Boot 2 + Docker Compose + MariaDB + Persistence
 Test controller available at `http://localhost:9090/` with basic info:
 
 ```
@@ -6,7 +6,16 @@ Test controller available at `http://localhost:9090/` with basic info:
 [2018-11-02T11:27:40.370] af0dc15f20a5 : 8080
 ```
 
+Database data `http://localhost:9090/customers`
+
 ##Docker Compose
+Portainer UI (optional):
+- https://portainer.io/install.html
+```cmd
+docker volume create portainer_data
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+```
+
 Docker commands:
 ```cmd
 docker-compose up

@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
   mariadb:
@@ -15,7 +15,7 @@ services:
       - maridb-volume:/docker-entrypoint-initdb.d
       - maridb-volume:/var/lib/mysql
   web:
-    image: barthik/docker-compose:1.0.3-SNAPSHOT
+    image: barthik/docker-compose:1.0.4-SNAPSHOT
     container_name: docker-compose-app
     depends_on:
       - mariadb
