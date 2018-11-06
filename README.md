@@ -8,7 +8,7 @@ Test controller available at `http://localhost:9090/` with basic info:
 
 Database data `http://localhost:9090/customers`
 
-##Docker Compose
+## Docker Compose
 Portainer UI (optional):
 - https://portainer.io/install.html
 ```cmd
@@ -29,7 +29,7 @@ docker-compose down
 - MariaDB failed to start?
   - Try to recreate `./mariadb` dir, run `docker system prune` to clean up all volumes and run again
 
-##Standalone
+## Standalone
 Maven build command:
 ```cmd
 mvn clean install dockerfile:build
